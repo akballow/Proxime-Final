@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013 Nordic Semiconductor. All Rights Reserved.
+  
+  The information contained herein is property of Nordic Semiconductor ASA.
+  Terms and conditions of usage are described in detail in NORDIC SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
+  Licensees are granted free, non-transferable use of the information. NO WARRANTY of ANY KIND is provided. 
+  This heading must NOT be removed from the file.-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="no.android.proxime"
+    android:versionCode="17"
+    android:versionName="1.0" >
+
+    <permission
+        android:name="no.android.proxime.LOG"
+        android:description="@string/permission_log_description"
+        android:icon="@drawable/ic_permission_log"
+        android:label="@string/permission_log_label" />
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="no.android.proxime.LOG" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:logo="@drawable/nordic_n_logo"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="no.android.proxime.SplashscreenActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="no.android.proxime.FeaturesActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+        </activity>
+        
+        <!-- Plug-in activities -->
+
+        <activity
+            android:name="no.android.proxime.proximity.ProximityActivity"
+            android:icon="@drawable/ic_proximity_feature"
+            android:label="@string/proximity_feature_title"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="no.android.proximeLAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="no.android.proxime.proximity.ProximityService"
+            android:label="@string/proximity_feature_title" />
+
+    </application>
+
+</manifest>
