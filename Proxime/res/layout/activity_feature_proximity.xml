@@ -1,0 +1,118 @@
+<!--
+  Copyright (c) 2013 Nordic Semiconductor. All Rights Reserved.
+  
+  The information contained herein is property of Nordic Semiconductor ASA.
+  Terms and conditions of usage are described in detail in NORDIC SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
+  Licensees are granted free, non-transferable use of the information. NO WARRANTY of ANY KIND is provided. 
+  This heading must NOT be removed from the file.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RSSI"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProximityActivity" >
+
+    <!-- The size of text below must be fixed, therefore dp are used instead of sp -->
+
+    <no.android.proxime.widget.TrebuchetTextView
+        android:id="@+id/device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/battery"
+        android:ellipsize="end"
+        android:freezesText="true"
+        android:maxLines="1"
+        android:text="@string/proximity_default_name"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/action_connect"
+        style="@style/Widget.Connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_p"
+        android:minHeight="90dp"
+        android:onClick="onConnectClicked"
+        android:text="@string/action_connect"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/action_findme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/action_connect"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_p"
+        android:enabled="false"
+        android:minHeight="90dp"
+        android:onClick="onFindMeClicked"
+        android:text="@string/proximity_action_findme"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageLock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/monitor"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/option"
+        android:contentDescription="@string/proximity_lock_image_description"
+        android:src="@drawable/proximity_lock_closed" />
+
+    <CheckBox
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/battery"
+        android:layout_below="@+id/device_name"
+        android:checked="true"
+        android:text="@string/proximity_enable_server"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/monitor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/action_findme"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_p"
+        android:enabled="false"
+        android:minHeight="90dp"
+        android:onClick="onMonitorClick"
+        android:text="Monitor"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/option"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/battery"
+        android:freezesText="true"
+        android:gravity="center"
+        android:text="@string/not_available"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textrssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/battery"
+        android:layout_marginRight="34dp"
+        android:text="..."
+        android:textSize="180sp" />
+
+</RelativeLayout>
